@@ -328,51 +328,18 @@
 
 </section>
 <section>
-  <h2 style="font-size:2.4em; font-weight:700; text-align:center; margin-bottom:0.4em;">
+  <h3 style="font-size:2.2em; text-align:center;">
     Example Kernel Spec
-  </h2>
+  </h3>
 
-  <div style="
-    width:90%;
-    height:75vh;
-    margin:0 auto;
-    font-size:1.2em;
-  ">
-    <pre style="
-      margin:0;
-      height:100%;
-      padding:1.2em 1.4em;
-      background:#f7f7f7;
-    ">
-// xeus-cpp/share/jupyter/kernels/xcpp23/kernel.json.in
-
-{
-  "display_name": "C++23",
-  "env": {
-    "PATH":"@XEUS_CPP_PATH@",
-    "LD_LIBRARY_PATH":"@XEUS_CPP_LD_LIBRARY_PATH@"
-  },
-  "argv": [
-    "@XEUS_CPP_KERNELSPEC_PATH@xcpp",
-    "-f",
-    "{connection_file}",
-    "-resource-dir", "@XEUS_CPP_RESOURCE_DIR@",
-    "-I", "@XEUS_CPP_INCLUDE_DIR@",
-    "-std=c++23"
-  ],
-  "language": "cpp",
-  "metadata": {
-    "debugger": true
-  }
-}
-</code>
-    </pre>
+  <div style="text-align:center;">
+    <img src="src/images/kernel-spec.png"
+         alt="kernel-spec diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
   </div>
+
 </section>
-
-
-
-
 
 <section>
     <h1 style="font-size:4em; margin-bottom:0.4em; color:#d44; text-shadow:2px 2px #ffd;">🎉 LIVE DEMO 🎉</h1>
