@@ -31,7 +31,7 @@
       <div class="footer-left">
         <div style="font-family: Source Sans Pro, Helvetica, sans-serif;">
           <img alt="GitHub" src="src/images/github.svg" height="20px"/>
-          <p style="display: inline; vertical-align: top; margin-left: 4px; font-size: 20px;">@anutosh491 @JohanMabille @QuantStack</p>
+          <p style="display: inline; vertical-align: top; margin-left: 4px; font-size: 20px;">@anutosh491 @QuantStack</p>
         </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
 		<div class="slides">
 
 <section data-background-image="./cosmo_victory.png" data-background-opacity="0.1">
-  <h1>xeus-cpp, the new C++ kernel for Jupyter</h1>
+  <h1>Interactive C/C++ workflows in Jupyter using clang-repl</h1>
   <img src="/src/images/logo_scientific_computing.svg" alt="QuantStack Logo" class="title-logo">
 </section>
 <section>
@@ -54,62 +54,242 @@
         Contributes to LLVM<br>
       </div>
     </div>
-    <div class="column">
-      <img src="src/images/Johan.png" alt="Johan profile picture" class="circle-img-big">
-      <strong style="font-size: 1.5em">Johan Mabille</strong><br>
-      <div style="text-align: left">
-        Technical director at QuantStack<br>
-        Jupyter Distinguished Contributor<br>
-        Contributes to mamba and xtensor<br>
-      </div>
+  </div>
+</section>
+<section data-background-image="./cosmo_victory.png" data-background-opacity="0.1">
+  <h1>Interactive C/C++ workflows in Jupyter using clang-repl</h1>
+  <img src="/src/images/logo_scientific_computing.svg" alt="QuantStack Logo" class="title-logo">
+</section>
+<section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    REPL
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/REPL1.png"
+         alt="REPL1 diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+<section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    REPL
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/REPL2.png"
+         alt="REPL2 diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+<section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    REPL
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/REPL3.png"
+         alt="REPL3 diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:0,0.5em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+<section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    Project Jupyter
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/Jupyter1.webp"
+         alt="JUPYTER1 diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+<section>
+  <h2 style="margin:0 0 1em 0; text-align:left;">
+    Motivation: Why C++ Needs a REPL
+  </h2>
+
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
+
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Scientific Computing is Exploratory
+    </p>
+    <ul style="margin:0 0 1.2em 2em; padding:0;">
+      <li class="fragment fade-up">Scientists and engineers don’t just write software — they explore</li>
+      <li class="fragment fade-up">They iterate rapidly: write code, run it, visualize, inspect, repeat</li>
+    </ul>
+
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      Interpreted Languages Dominate This Space
+    </p>
+    <ul style="margin:0 0 1.2em 2em; padding:0;">
+      <li class="fragment fade-up">Tools like Python and R excel due to their REPL-driven workflows</li>
+      <li class="fragment fade-up">C++ is powerful, but its compile-run-debug loop is friction-heavy</li>
+    </ul>
+
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      C++ in a REPL = The Best of Both Worlds
+    </p>
+    <ul style="margin:0 0 1.2em 2em; padding:0;">
+      <li class="fragment fade-up">Projects like Cling showed that interactive C++ is possible</li>
+      <li class="fragment fade-up">C++ in a REPL format opens doors for teaching, rapid prototyping, and scientific computing</li>
+    </ul>
+
+  </div>
+</section>
+
+<section>
+  <!-- Title -->
+  <h3 style="font-size:2.1em; margin:0 0 .8em 0; text-align:left;">
+    C++ Kernel through cling and Xeus-cling
+  </h3>
+
+  <!-- Bullet Points Wrapper -->
+  <div style="background:#f5f5f5; padding:1em 1.3em; border-radius:8px;
+              font-size:1.35em; line-height:1.6; text-align:left; max-width:80%;">
+    <ul style="margin:0; padding-left:1.2em;">
+      <li class="fragment fade-up" style="margin:0 0 .6em 0;">
+        <strong>cling</strong> — https://github.com/root-project/cling
+      </li>
+      <li class="fragment fade-up" style="margin:0 0 .6em 0;">
+        <strong>xeus-cling</strong> — https://github.com/jupyter-xeus/xeus-cling
+      </li>
+      <li class="fragment fade-up" style="margin:0 0 .6em 0;">
+        <strong>Blog</strong> — https://blog.jupyter.org/interactive-workflows-for-c-with-jupyter-fe9b54227d92
+      </li>
+      <li class="fragment fade-up" style="margin:0;">
+        The above blog received <strong>~500k views</strong>, highlighting the demand for interactive C++
+      </li>
+    </ul>
+  </div>
+</section>
+<section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    C++ Kernel through cling and Xeus-cling
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/cling.png"
+         alt="cling diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+
+<section>
+  <h2 style="margin:0 0 1em 0; text-align:left;">
+    The Xeus Universe
+  </h2>
+  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
+    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
+      What does Xeus even mean ?
+    </p>
+    <ul style="margin:0 0 1.5em 2em; padding:0;">
+      <li class="fragment fade-up">xeus is a C++ library which simplifies the implementation of kernels for Jupyter</li>
+      <li class="fragment fade-up">developers can focus on implementing the interpreter part of the kernel</li>
+      <li class="fragment fade-up">Tutorial for creating a kernel based on xeus: https://xeus.readthedocs.io/en/latest/kernel_implementation.html</li>
+      <li class="fragment fade-up">xeus is architected in components that can be replaced with ad-hoc implementations</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2 style="margin:0 0 .6em 0; text-align:left;">
+    The Xeus Universe
+  </h2>
+
+  <div style="
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1em;
+    align-items:stretch;
+    margin-top:.4em;
+  ">
+
+    <!-- Card 1 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-python-logo.svg" alt="xeus-python"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/python_gif.gif" alt="xeus-python demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
     </div>
+
+    <!-- Card 2 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-cling.svg" alt="xeus-cling"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/xeus-cling-screenshot.png" alt="xeus-cling demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
+    </div>
+
+    <!-- Card 3 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-lua-logo.svg" alt="xeus-lua"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/lua.gif" alt="xeus-lua demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
+    </div>
+
+    <!-- Card 4 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-sql-logo.svg" alt="xeus-sql"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/xeus-sql-screencast.gif" alt="xeus-sql demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
+    </div>
+
+    <!-- Card 5 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-sqlite-logo.svg" alt="xeus-sqlite"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/xeus-sqlite-screenshot.png" alt="xeus-sqlite demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
+    </div>
+
+    <!-- Card 6 -->
+    <div style="background:#f5f5f5; border-radius:12px; padding:.7em; display:flex; flex-direction:column; gap:.45em;">
+      <img src="src/images/xeus-robot.svg" alt="xeus-robot"
+           style="height:75px; width:auto; object-fit:contain; align-self:center;
+                  margin-bottom:.1em; filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));">
+      <img src="src/images/robo_gif.gif" alt="xeus-robot demo"
+           style="width:100%; height:235px; object-fit:contain; background:#fff;
+                  border-radius:10px; box-shadow:0 6px 16px rgba(0,0,0,.18);">
+    </div>
+
   </div>
 </section>
-<section>
-  <h2 style="margin:0 0 1em 0; text-align:left;">
-    Writing Jupyter Kernels (1/2)
-  </h2>
-  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
-    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
-      Before 2017
-    </p>
-    <ul style="margin:0 0 1.5em 2em; padding:0;">
-      <li class="fragment fade-up">Write from scratch</li>
-      <li class="fragment fade-up">Use the kernel wrapper approach</li>
-    </ul>
 
-    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
-      2017: release of xeus
-    </p>
-    <ul style="margin:0 0 0 2em; padding:0;">
-      <li class="fragment fade-up">A modern C++ implementation of the Jupyter Kernel Protocol</li>
-      <li class="fragment fade-up">Not a kernel, but a tool to make kernel</li>
-    </ul>
-  </div>
-</section>
 <section>
-  <h2 style="margin:0 0 1em 0; text-align:left;">
-    Writing Jupyter Kernels (2/2)
-  </h2>
-  <div style="font-size:1.3em; line-height:1.6; text-align:left;">
-    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
-      After 2017: xeus-based kernels
-    </p>
-    <ul style="margin:0 0 1.5em 2em; padding:0;">
-      <li class="fragment fade-up">xeus-python</li>
-      <li class="fragment fade-up">xeus-sql, xeus-sqlite</li>
-      <li class="fragment fade-up">xeus-cling, based on Cling, a C++ interpreter developped at the CERN</li>
-    </ul>
+  <h3 style="font-size:2.2em; text-align:center;">
+    Xeus Architecture
+  </h3>
 
-    <p class="fragment fade-up" style="font-weight:600; margin:0 0 .4em 0;">
-      2022: split of xeus
-    </p>
-    <ul style="margin:0 0 0 2em; padding:0;">
-      <li class="fragment fade-up">xeus: implementation of the Jupyter Kernel protocol with no middleware</li>
-      <li class="fragment fade-up">xeus-zmq: ZMQ-based middleware for xeus</li>
-      <li class="fragment fade-up">xeus-lite: emscripten-based middleware for xeus</li>
-    </ul>
+  <div style="text-align:center;">
+    <img src="src/images/arch.svg"
+         alt="architecture diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
   </div>
+
 </section>
 <section>
   <h2 style="margin:0 0 1em 0; text-align:left;">
@@ -135,6 +315,66 @@
   </div>
 </section>
 <section>
+  <h3 style="font-size:2.2em; text-align:center;">
+    Clang-repl's Design
+  </h3>
+
+  <div style="text-align:center;">
+    <img src="src/images/clang-repl.png"
+         alt="architecture diagram"
+         style="max-width:85%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);margin-top:1em;"
+         class="fragment fade-up"/>
+  </div>
+
+</section>
+<section>
+  <h2 style="font-size:2.4em; font-weight:700; text-align:center; margin-bottom:0.4em;">
+    Example Kernel Spec
+  </h2>
+
+  <div style="
+    width:90%;
+    height:75vh;
+    margin:0 auto;
+    font-size:1.2em;
+  ">
+    <pre style="
+      margin:0;
+      height:100%;
+      padding:1.2em 1.4em;
+      background:#f7f7f7;
+    ">
+// xeus-cpp/share/jupyter/kernels/xcpp23/kernel.json.in
+
+{
+  "display_name": "C++23",
+  "env": {
+    "PATH":"@XEUS_CPP_PATH@",
+    "LD_LIBRARY_PATH":"@XEUS_CPP_LD_LIBRARY_PATH@"
+  },
+  "argv": [
+    "@XEUS_CPP_KERNELSPEC_PATH@xcpp",
+    "-f",
+    "{connection_file}",
+    "-resource-dir", "@XEUS_CPP_RESOURCE_DIR@",
+    "-I", "@XEUS_CPP_INCLUDE_DIR@",
+    "-std=c++23"
+  ],
+  "language": "cpp",
+  "metadata": {
+    "debugger": true
+  }
+}
+</code>
+    </pre>
+  </div>
+</section>
+
+
+
+
+
+<section>
     <h1 style="font-size:4em; margin-bottom:0.4em; color:#d44; text-shadow:2px 2px #ffd;">🎉 LIVE DEMO 🎉</h1>
 </section>
 <section data-markdown>
@@ -157,13 +397,6 @@
     <h1 style="font-size:3em; margin:0 0 .6em 0;">Xeus-Cpp-Lite</h1>
 
     <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-      <!-- Link banner -->
-      <div style="grid-column:1 / -1;background:#f6f6ff;border:1px solid #e0e0ff;padding:1rem 1.25rem;border-radius:14px;text-align:center;">
-        <div style="font-weight:600;margin-bottom:.5rem;">Yesterday’s talk: JupyterLite + Emscripten-Forge</div>
-        <a href="https://isabelparedes.github.io/pydata2025/" target="_blank" style="display:inline-block;padding:.5rem 1rem;border-radius:10px;border:1px solid #c9ccff;text-decoration:none;color:#d44;">
-          Slides here ↗
-        </a>
-      </div>
 
       <!-- Column 1 -->
       <div style="background:#fff;border:1px solid #eee;border-radius:16px;padding:1.5rem;box-shadow:0 6px 20px rgba(0,0,0,.06);min-height:200px;display:flex;flex-direction:column;justify-content:space-between;">
